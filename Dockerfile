@@ -1,5 +1,7 @@
 FROM caddy:2.1.1-alpine
 
+ARG version=HEAD
+
 RUN apk add --no-cache rsync openssh
 
 ADD etc/ /etc
@@ -18,5 +20,17 @@ RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /; \
         rm -f /tmp/s6-overlay-amd64.tar.gz
 # Export env to s6 started services.
 ENV S6_KEEP_ENV 1
+
+LABEL org.opencontainers.image.version=${version}
+LABEL org.opencontainers.image.title=Backstore
+LABEL org.opencontainers.image.description="simple image for storing BackstopJS reports"
+LABEL org.opencontainers.image.url=https://github.com/reload/backstore
+LABEL org.opencontainers.image.documentation=https://github.com/reload/backstore
+LABEL org.opencontainers.image.vendor="Reload"
+LABEL org.opencontainers.image.licenses=Apache-2.0
+LABEL org.opencontainers.image.source="https://github.com/reload/backstore"
+
+EXPOSE 80
+EXPOSE 1985
 
 ENTRYPOINT ["/init"]

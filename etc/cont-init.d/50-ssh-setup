@@ -6,5 +6,8 @@ foreground { /usr/bin/ssh-keygen -A }
 # Generate key for store if it doesn't exist.
 foreground { su -l store -c "test -f .ssh/id_rsa || (mkdir -p .ssh && ssh-keygen -q -t rsa -N \"\" -f .ssh/id_rsa)" }
 
+# Authorize it.
+foreground { cp /srv/.ssh/id_rsa.pub /srv/.ssh/authorized_keys }
+
 # Ensure proper permissions.
 sh -c "chmod go=rx /srv && chmod -R go= /srv/.ssh"

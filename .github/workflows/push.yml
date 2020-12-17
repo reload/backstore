@@ -35,6 +35,8 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         builder: ${{ steps.buildx.outputs.name }}
+        build-args: |
+          version=${{ steps.version.outputs.new_tag }}
         tags: |
           ghcr.io/reload/${{ github.repository}}:latest
           ghcr.io/reload/${{ github.repository}}:${{ steps.version.outputs.new_tag }}

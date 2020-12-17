@@ -1,0 +1,4 @@
+#!/usr/bin/execlineb -S0
+
+# Ensure the container stops if Caddy fails for same reason.
+s6-svscanctl -t /var/run/s6/services

@@ -1,0 +1,2 @@
+# Ignore mounted srv. Permissions will make docker build barf.
+srv

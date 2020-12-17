@@ -7,4 +7,4 @@ foreground { /usr/bin/ssh-keygen -A }
 foreground { su -l store -c "test -f .ssh/id_rsa || mkdir -p .ssh && ssh-keygen -q -t rsa -N \"\" -f .ssh/id_rsa" }
 
 # Ensure proper permissions.
-sh -c "chmod go=rx /srv && chmod -R go= /srv.ssh"
+sh -c "chmod go=rx /srv && chmod -R go= /srv/.ssh"

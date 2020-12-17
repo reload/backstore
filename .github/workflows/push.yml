@@ -15,6 +15,7 @@ jobs:
       id: version
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        RELEASE_BRANCHES: main
         WITH_V: false
         DEFAULT_BUMP: patch
     - name: Set up Docker Buildx

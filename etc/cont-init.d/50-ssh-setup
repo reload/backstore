@@ -10,4 +10,4 @@ foreground { su -l store -c "test -f .ssh/id_rsa || (mkdir -p .ssh && ssh-keygen
 foreground { cp /srv/.ssh/id_rsa.pub /srv/.ssh/authorized_keys }
 
 # Ensure proper permissions.
-sh -c "chmod go=rx /srv && chmod -R go= /srv/.ssh"
+sh -c "chmod go=rx /srv && chmod -R go= /srv/.ssh && chown store:store -R /srv"

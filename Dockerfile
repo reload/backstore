@@ -12,7 +12,9 @@ ADD etc/ /etc
 # change it to "*" which matches no hashes either, but isn't locked.
 RUN adduser -Dh /srv store && \
         echo "store:*" | chpasswd -e && \ 
-        chown store.store /srv
+        mkdir /srv/backstore && \
+        chown -R store.store /srv
+
 
 # Use S6-overlay as init.
 ADD https://github.com/just-containers/s6-overlay/releases/download/v1.21.8.0/s6-overlay-amd64.tar.gz /tmp/

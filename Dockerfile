@@ -1,10 +1,12 @@
 FROM caddy:2.1.1-alpine
 
+SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+
 ARG version=HEAD
 
-RUN apk add --no-cache rsync openssh
+RUN apk add --no-cache rsync=3.1.3-r3 openssh=8.3_p1-r1
 
-ADD etc/ /etc
+COPY etc/ /etc
 
 # The -D switch sets the password hash to "!". As no password hashes
 # to this string, this disables password login. However, ! is also

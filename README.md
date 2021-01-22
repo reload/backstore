@@ -19,7 +19,7 @@ Generate a sha using `echo $GITHUB_REPOSITORY:$GITHUB_SHA | sha1sum - | cut -d" 
 Then sync the report:
 
 `rsync -e 'ssh -i <identity file> -p 1984 -o StrictHostKeyChecking=no'
--r report/ store@<hostname>:<the sha>/`
+-r report/ store@<hostname>:backstore/<the sha>/`
 
 It will then be available at `http://<hostname>/<the sha>/` (or https
 equivalent, if you have a appropriate proxy).

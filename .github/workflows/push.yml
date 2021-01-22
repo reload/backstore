@@ -1,8 +1,17 @@
 on: push
 name: Build image
 jobs:
+  dockerfile-lint:
+    name: dockerfile
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - name: Run hadolint
+       uses: brpaz/hadolint-action@v1.3.1
+
   build:
     name: Docker build and push
+    needs: dockerfile-lint
     if: '!github.event.deleted'
     runs-on: ubuntu-latest
     steps:

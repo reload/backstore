@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ruby /usr/local/bin/cleanup.rb -l 95G /srv/backstore

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Clean out so there's 10GiB free.
+ruby /usr/local/bin/cleanup.rb -l 90G /srv/backstore

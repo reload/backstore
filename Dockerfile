@@ -4,9 +4,10 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 ARG version=HEAD
 
-RUN apk add --no-cache rsync=3.1.3-r3 openssh=8.3_p1-r1
+RUN apk add --no-cache rsync=3.1.3-r3 openssh=8.3_p1-r1 ruby=2.7.2-r0
 
 COPY etc/ /etc
+COPY cleanup.rb /usr/local/bin
 
 # The -D switch sets the password hash to "!". As no password hashes
 # to this string, this disables password login. However, ! is also

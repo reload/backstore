@@ -28,7 +28,7 @@ OptionParser.new do |opts|
         "k" => 1024
       }
 
-      limit *= multipliers[m[2]] unless m[2].empty?
+      limit *= multipliers[m[2].downcase] unless m[2].empty?
     end
   end
 end.parse!

@@ -1,10 +1,10 @@
-FROM caddy:2.4.5-alpine
+FROM caddy:2.4.6-alpine
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 ARG version=HEAD
 
-RUN apk add --no-cache rsync=3.2.3-r4 openssh=8.6_p1-r2 ruby=2.7.4-r0
+RUN apk add --no-cache rsync=3.2.3-r4 openssh=8.6_p1-r3 ruby=2.7.4-r0
 
 COPY etc/ /etc
 COPY cleanup.rb /usr/local/bin

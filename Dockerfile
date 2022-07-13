@@ -1,4 +1,4 @@
-FROM caddy:2.5.1-alpine
+FROM caddy:2.5.2-alpine
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 

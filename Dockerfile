@@ -16,7 +16,7 @@ COPY cleanup.rb /usr/local/bin
 RUN adduser -Dh /srv store && \
         echo "store:*" | chpasswd -e && \ 
         mkdir /srv/backstore && \
-        chown -R store.store /srv
+        chown -R store:store /srv
 
 
 # Use S6-overlay as init.

@@ -1,4 +1,4 @@
-FROM caddy:2.9.1-alpine
+FROM caddy:2.10.0-alpine
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
@@ -16,7 +16,7 @@ COPY cleanup.rb /usr/local/bin
 RUN adduser -Dh /srv store && \
         echo "store:*" | chpasswd -e && \ 
         mkdir /srv/backstore && \
-        chown -R store.store /srv
+        chown -R store:store /srv
 
 
 # Use S6-overlay as init.

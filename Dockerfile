@@ -1,10 +1,10 @@
-FROM caddy:2.10.0-alpine
+FROM caddy:2.10.2-alpine
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 ARG version=HEAD
 
-RUN apk add --no-cache rsync=~3 openssh=~9 ruby=~3
+RUN apk add --no-cache rsync=~3 openssh=~10 ruby=~3
 
 COPY etc/ /etc
 COPY cleanup.rb /usr/local/bin
@@ -24,7 +24,7 @@ ADD https://github.com/just-containers/s6-overlay/releases/download/v1.21.8.0/s6
 RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /; \
         rm -f /tmp/s6-overlay-amd64.tar.gz
 # Export env to s6 started services.
-ENV S6_KEEP_ENV 1
+ENV S6_KEEP_ENV=1
 
 LABEL org.opencontainers.image.version=${version}
 LABEL org.opencontainers.image.title=Backstore

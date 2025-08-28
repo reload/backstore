@@ -4,7 +4,7 @@ SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
 ARG version=HEAD
 
-RUN apk add --no-cache rsync=~3 openssh=~9 ruby=~3
+RUN apk add --no-cache rsync=~3 openssh=~10 ruby=~3
 
 COPY etc/ /etc
 COPY cleanup.rb /usr/local/bin
